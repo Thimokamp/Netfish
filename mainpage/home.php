@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Netfish</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="home.css">
 </head>
 <body>
 
@@ -27,7 +27,7 @@
     </div>
 
     <div class="player">
-        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+        <iframe src=""
                 frameborder="0"
                 allowfullscreen>
         </iframe>
