@@ -8,7 +8,7 @@
 <body>
 
 <header>
-    <div class="logo"><img src="https://via.placeholder.com/160x240"></div>
+    <div class="logo"><img src=img/></div>
     <nav>
         <button>Video's</button>
         <button>Beheer</button>
