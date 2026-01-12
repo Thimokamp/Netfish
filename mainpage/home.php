@@ -8,7 +8,7 @@
 <body>
 
 <header>
-    <div class="logo">NETFISH</div>
+    <div class="logo"><img src="https://via.placeholder.com/160x240"></div>
     <nav>
         <button>Video's</button>
         <button>Beheer</button>
