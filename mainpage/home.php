@@ -13,9 +13,15 @@
 </div>
 
     <nav>
-        <button>Video's</button>
-        <button>Beheer</button>
-        <button>Inloggen</button>
+        <button onclick="window.location.href='home.php'">
+    Video's
+</button>
+        <button onclick="window.location.href='dashboard.html'">
+    beheer
+</button>
+        <button onclick="window.location.href='register.php'">
+    inloggen
+</button>
     </nav>
 </header>
 
