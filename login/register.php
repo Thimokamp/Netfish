@@ -34,6 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <a href="../mainpage/home.php" class="btn">Video’s</a>
         <a href="" class="btn">Beheer</a>
         <a href="register.php" class="btn">Inloggen</a>
+        <a href="wachtwoordvergeten.php" class="btn">WW Vergeten</a>
     </nav>
 </header>
 
@@ -43,27 +44,27 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             Naam:
             <input type="text" name="username" required>
         </label>
-
+    <br>
         <label>
             Gebruikersnaam:
             <input type="text" name="username" required>
         </label>
-
+    <br>
         <label>
             E-mail:
             <input type="email" name="email" required>
-
+    <br>
         <label>
             Wachtwoord:
             <input type="password" name="password" required>
         </label>
-
+    <br>
           <label>
             Wachtwoord ter controle:
             <input type="password" name="password" required>
         </label>
-
-        <button type="submit">registreer</button>
+    <br>
+        <button type="submit" onclick="window.location.href='login.php'">REGISTER</button>
     </form>
 </main>
 
