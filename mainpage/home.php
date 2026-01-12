@@ -19,7 +19,7 @@
         <button onclick="window.location.href='dashboard.html'">
     beheer
 </button>
-        <button onclick="window.location.href='register.php'">
+        <button onclick="window.location.href='login/register.php'">
     inloggen
 </button>
     </nav>
