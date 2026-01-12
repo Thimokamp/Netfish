@@ -31,25 +31,39 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 </div>
     <nav>
-        <a href="videos.html" class="btn">Video’s</a>
+        <a href="../mainpage/home.php" class="btn">Video’s</a>
         <a href="" class="btn">Beheer</a>
-        <a href="login.html" class="btn">Inloggen</a>
+        <a href="register.php" class="btn">Inloggen</a>
     </nav>
 </header>
 
 <main class="login-container">
     <form action="login.php" method="POST" class="login-form">
+            <label>
+            Naam:
+            <input type="text" name="username" required>
+        </label>
+
         <label>
             Gebruikersnaam:
             <input type="text" name="username" required>
         </label>
 
         <label>
+            E-mail:
+            <input type="email" name="email" required>
+
+        <label>
             Wachtwoord:
             <input type="password" name="password" required>
         </label>
 
-        <button type="submit">LOGIN</button>
+          <label>
+            Wachtwoord ter controle:
+            <input type="password" name="password" required>
+        </label>
+
+        <button type="submit">registreer</button>
     </form>
 </main>
 
