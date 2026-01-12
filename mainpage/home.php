@@ -8,7 +8,10 @@
 <body>
 
 <header>
-    <div class="logo"><img src=img/></div>
+    <div class="logo">
+    <img src="logonetfish.png" alt="">
+</div>
+
     <nav>
         <button>Video's</button>
         <button>Beheer</button>
@@ -37,11 +40,11 @@
 <section class="row">
     <h2>Populair</h2>
     <div class="cards">
-        <img src="https://via.placeholder.com/160x240">
-        <img src="https://via.placeholder.com/160x240">
-        <img src="https://via.placeholder.com/160x240">
-        <img src="https://via.placeholder.com/160x240">
-        <img src="https://via.placeholder.com/160x240">
+        <img src="jaws.jpg">
+        <img src="lastjedi.jpg">
+        <img src="nolag.webp">
+        <img src="oppen.webp">
+        <img src="matrix.webp">
     </div>
 </section>
 
