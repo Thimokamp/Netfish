@@ -9,20 +9,17 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $username = $_POST['username'];
     $email = $_POST['email'];
     $password = $_POST['password'];
-    $password_confirm = $_POST['password_confirm'];
 
-    if ($password !== $password_confirm) {
-        die("Wachtwoorden komen niet overeen");
-    }
+
 
     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
     $rol = 'gebruiker';
 
     $stmt = $conn->prepare(
-        "INSERT INTO user (username, email, password, )
-         VALUES (?, ?, ?, ?)"
+        "INSERT INTO user (username, email, password )
+         VALUES (?, ?, ?)"
     );
-    $stmt->bind_param("ssss", $username, $email, $hashedPassword, $rol);
+    $stmt->bind_param("sss", $username, $email, $hashedPassword);
     $stmt->execute();
 
     header("Location: login.php");

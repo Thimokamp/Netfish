@@ -3,7 +3,6 @@ session_start();
 $conn = new mysqli("localhost", "root", "", "netfish"); //connect met db
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $email = $_POST['email']; //ingevoerde gegevens ophalen
     $password = $_POST['password']; 
 
     $stmt = $conn->prepare("SELECT id, password, is_admin FROM user WHERE email = ?"); //gebruiker info uit db
