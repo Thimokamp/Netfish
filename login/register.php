@@ -1,19 +1,35 @@
 <?php
 $conn = new mysqli("localhost", "root", "", "netfish");
 
+if ($conn->connect_error) {
+    die("Database fout: " . $conn->connect_error);
+}
+
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $username = $_POST['username'];
     $email = $_POST['email'];
-    $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-    $rol = 'gebruiker'; // standaard rol
+    $password = $_POST['password'];
+    $password_confirm = $_POST['password_confirm'];
 
-    $stmt = $conn->prepare("INSERT INTO users (username, email, password, rol) VALUES (?, ?, ?, ?)");
-    $stmt->bind_param("ssss", $naam, $email, $wachtwoord, $rol);
+    if ($password !== $password_confirm) {
+        die("Wachtwoorden komen niet overeen");
+    }
+
+    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+    $rol = 'gebruiker';
+
+    $stmt = $conn->prepare(
+        "INSERT INTO user (username, email, password, )
+         VALUES (?, ?, ?, ?)"
+    );
+    $stmt->bind_param("ssss", $username, $email, $hashedPassword, $rol);
     $stmt->execute();
 
     header("Location: login.php");
+    exit;
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="nl">
 <head>
@@ -39,33 +55,31 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 </header>
 
 <main class="login-container">
-    <form action="login.php" method="POST" class="login-form">
-            <label>
-            Naam:
-            <input type="text" name="username" required>
-        </label>
-    <br>
-        <label>
-            Gebruikersnaam:
-            <input type="text" name="username" required>
-        </label>
-    <br>
-        <label>
-            E-mail:
-            <input type="email" name="email" required>
-    <br>
-        <label>
-            Wachtwoord:
-            <input type="password" name="password" required>
-        </label>
-    <br>
-          <label>
-            Wachtwoord ter controle:
-            <input type="password" name="password" required>
-        </label>
-    <br>
-        <button type="submit" onclick="window.location.href='login.php'">REGISTER</button>
-    </form>
+   <form action="register.php" method="POST" class="login-form">
+
+    <label>
+        Gebruikersnaam:
+        <input type="text" name="username" required>
+    </label>
+
+    <label>
+        E-mail:
+        <input type="email" name="email" required>
+    </label>
+
+    <label>
+        Wachtwoord:
+        <input type="password" name="password" required>
+    </label>
+
+    <label>
+        Wachtwoord herhalen:
+        <input type="password" name="password_confirm" required>
+    </label>
+
+    <button type="submit">REGISTREREN</button>
+</form>
+
 </main>
 
 </body>

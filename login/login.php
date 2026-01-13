@@ -1,14 +1,14 @@
 <?php
 session_start();
-$conn = new mysqli("localhost", "root", "", "netfish");
+$conn = new mysqli("localhost", "root", "", "netfish"); //connect met db
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $email = $_POST['email'];
-    $password = $_POST['password'];
+    $email = $_POST['email']; //ingevoerde gegevens ophalen
+    $password = $_POST['password']; 
 
-    $stmt = $conn->prepare("SELECT id, password, rol FROM users WHERE email = ?");
+    $stmt = $conn->prepare("SELECT id, password, is_admin FROM user WHERE email = ?"); //gebruiker info uit db
     $stmt->bind_param("s", $email);
-    $stmt->execute();
+    $stmt->execute(); //zoekt gebruiker op basis van email
     $result = $stmt->get_result()->fetch_assoc();
 
     if ($result && password_verify($wachtwoord, $result['wachtwoord'])) {
@@ -16,9 +16,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $_SESSION['rol'] = $result['rol'];
 
         if ($result['rol'] === 'beheerder') {
-            header("Location: admin.php");
+            header("Location: overzicht.php");
         } else {
-            header("Location: dashboard.php");
+            header("Location: dashboard.php"); 
         }
     } else {
         echo "Ongeldige login";
